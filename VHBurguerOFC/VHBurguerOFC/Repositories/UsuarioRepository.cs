@@ -60,7 +60,7 @@ namespace VHBurguerOFC.Repositories
 
         public void Remover(int Id)
         {
-            Usuario? usuario = _context.Usuario.FirstOrDefault(usuarioAuxiliar => usuarioAuxiliar.UsuarioID == id);
+            Usuario? usuario = _context.Usuario.FirstOrDefault(usuarioAuxiliar => usuarioAuxiliar.UsuarioID == Id);
 
             if(usuario == null)
             {

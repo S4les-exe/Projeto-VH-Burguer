@@ -4,12 +4,12 @@ namespace VHBurguerOFC.Interfaces
 {
     public interface IUsuarioRepository
     {
-        List<Usuario> Lista();
+        List<Usuario> Listar();
 
         //pode ser que nao venha nenhum usuario na busca, entao colocamos ?
         Usuario? ObterPorId(int Id);
 
-        Usuario? ObterporEmail(string Email);
+        Usuario? ObterPorEmail(string Email);
 
         bool EmailExiste(string Email);
 
