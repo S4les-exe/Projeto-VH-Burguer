@@ -35,7 +35,7 @@ namespace VHBurguer.Applications.Services
             
             if(categoria == null)
             {
-                throw DomainException("Categoria nao encontrada");
+                throw new DomainException("Categoria nao encontrada");
             }
 
             LerCategoriaDto categoriaDto = new LerCategoriaDto

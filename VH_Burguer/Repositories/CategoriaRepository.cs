@@ -18,7 +18,7 @@ namespace VHBurguer.Repositories
             return _context.Categoria.ToList();
         }
 
-        public CategoriaRepository ObterPorId(int id)
+        public Categoria ObterPorId(int id)
         {
             Categoria categoria = _context.Categoria.FirstOrDefault(c => c.CategoriaID == id);
 
@@ -70,7 +70,7 @@ namespace VHBurguer.Repositories
         {
             Categoria categoriaBanco = _context.Categoria.FirstOrDefault(c => c.CategoriaID == id);
 
-            if(categoriaBanco = null)
+            if(categoriaBanco == null)
             {
                 return;
             }
