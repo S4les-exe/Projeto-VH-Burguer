@@ -77,5 +77,40 @@ namespace VHBurguer.Applications.Services
 
             _repository.Adicionar(promocao);
         }
+
+        public void Atualizar(int id, CriarPromocaoDto promoDto)
+        {
+            ValidarNome(promoDto.Nome);
+
+            Promocao promocaoBanco = _repository.ObterPorId(id);
+
+            if(promocaoBanco == null)
+            {
+                throw new DomainException("Promocao nao encontrada.");
+            }
+
+            if(_repository.NomeExiste(promoDto.Nome, promocaoIdAtual:id))
+            {
+                throw new DomainException("Ja existe outra promocao com esse nome");
+            }
+
+            promocaoBanco.Nome = promoDto.Nome;
+            promocaoBanco.DataExpiracao = promoDto.DataExpiracao;
+            promocaoBanco.StatusPromocao = promoDto.StatusPromocao; 
+
+            _repository.Atualizar(promocaoBanco);
+        }
+
+        public void Remover(int id)
+        {
+            Promocao promocaoBanco = _repository.ObterPorId(id);
+
+            if(promocaoBanco == null)
+            {
+                throw new DomainException("Promocao não encontrada");
+            }
+
+            _repository.Remover(id);
+        }
     }
 }
